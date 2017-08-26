@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spacebar</title>
+  </head>
+  <body>
+    <div>
+      <h1>
+        Spacebar
+      </h1>
+    </div>
+
+    <div>
+      Enter Player Number: <input id="playerId" type="text"/>
+      <button onclick="start()">Start!</button>
+    </div>
+    <div>
+      Scoreboard
+      <ul style="list-style: none;" id="scores"></ul>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC0SkgB2W2b_S8eV7OtLAh3umQs8LErHzU",
+      authDomain: "spacebar-8d794.firebaseapp.com",
+      databaseURL: "https://spacebar-8d794.firebaseio.com",
+      projectId: "spacebar-8d794",
+      storageBucket: "",
+      messagingSenderId: "463342704066"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
