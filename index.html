@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Spacebar</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
     <div>
@@ -15,12 +16,13 @@
     </div>
     <div>
       Enter Player Number: <input id="playerId" type="text"/>
-      <button onclick="start()">Start!</button>
+      <button id="start-button" onclick="start()">Start!</button>
     </div>
     <div>
       Scoreboard
-      <ul style="list-style: none;" id="scores"></ul>
+      <ul id="scores"></ul>
     </div>
+    <div id="gameover"></div>
     <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
     <script>
     // Initialize Firebase
