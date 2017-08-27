@@ -2,12 +2,13 @@ var playerScore = 0; // your starting scores
 var scoreboard = document.getElementById('scores') // all player scores
 var gamestart = false;
 var winningScore = 25;
+var gameover = document.getElementById('gameover');
 
 function newgame() {
   firebase.database().ref().remove();
   gamestart = false;
-  document.getElementById('playerId').readOnly = false;
   document.getElementById('start-button').disabled = false;
+  gameover.style.opacity = 0;
 }
 
 
@@ -26,7 +27,6 @@ function start() {
 }
 
 window.addEventListener("keydown", function(event) {
-  console.log(gamestart);
   if (event.code == "Space" && gamestart) {
     let playerId = document.getElementById("playerId").value;
     if (playerId) {
@@ -73,9 +73,8 @@ var weHaveAWinner = function() {
     snapshot.forEach(function(childSnapshot) {
       if (childSnapshot.val() == winningScore) {
         window.gamestart = false;
-        document.getElementById('gameover').innerHTML = 'Player ' + childSnapshot.key + ' is the winner! ';
-        document.getElementById("playerId").value = '';
-        // debugger;
+        gameover.innerHTML = 'Player ' + childSnapshot.key + ' is the winner! \n Click New Game to play again!';
+        gameover.style.opacity = 1;
       }
     });
   })
